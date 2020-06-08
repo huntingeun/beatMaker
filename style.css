@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+i,
+svg {
+  pointer-events: none;
+}
+
+.sequencer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.track {
+  display: grid;
+  margin-top: 3rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5rem;
+}
+
+.controls button {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: gray;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+.pad {
+  margin-top: 0.5rem;
+  display: flex;
+  transition: all 0.5s ease;
+} /*Line 바꿔서 밑으로 오게끔!*/
+
+.kick-pad,
+.snare-pad,
+.hihat-pad {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem 0.2rem;
+  cursor: pointer;
+}
+
+.kick-pad {
+  background-color: #7a92f0;
+}
+
+.kick-pad.active {
+  background-color: #1a2a6c;
+}
+
+.snare-pad {
+  background-color: #f58e8e;
+}
+
+.snare-pad.active {
+  background-color: #b21f1f;
+}
+
+.hihat-pad {
+  background-color: #ffdd94;
+}
+
+.hihat-pad.active {
+  background-color: #f2a500;
+}
+
+.play {
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: white;
+  background-color: #7a92f0;
+  cursor: pointer;
+  margin-top: 3rem;
+}
+
+input.tempo-range {
+  margin: 0 auto;
+  width: 50vw;
+  -webkit-appearance: none;
+}
+
+@keyframes playTrack {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
