@@ -9,10 +9,12 @@ class DrumKit {
     this.snareAudio = document.querySelector(".js-snare-sound");
     this.hihatAudio = document.querySelector(".js-hihat-sound");
     this.index = 0;
-    this.bpm = 200;
+    this.bpm = 150;
     this.isPlaying = null; //base false
     this.selects = document.querySelectorAll("select");
     this.muteBtns = document.querySelectorAll(".mute");
+    this.tempoSlider = document.querySelector(".tempo-slider");
+    this.tempoNr = document.querySelector(".tempo-number");
   }
   repeat() {
     const step = this.index % 8;
@@ -101,6 +103,19 @@ class DrumKit {
       }
     }
   }
+  changeTempo(e) {
+    this.tempoNr.innerText = e.target.value;
+  }
+  //setting this.bpm to currentTempo doesnt update this.bpm in start function
+  //so we have to this.bpm inside start function and rerun it again
+  updateTempo(e) {
+    this.bpm = e.target.value;
+    clearInterval(this.isPlaying);
+    this.isPlaying = null;
+    if (this.playBtn.classList.contains("active")) {
+      this.start();
+    }
+  }
   activePad() {
     this.classList.toggle("active");
     //=event.target.classList.toggle("active");
@@ -133,4 +148,12 @@ drumKit.muteBtns.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     drumKit.muteSound(e);
   });
+});
+
+drumKit.tempoSlider.addEventListener("input", function (e) {
+  drumKit.changeTempo(e);
+});
+//event change only reacts to final destination whereas input reacts to every move
+drumKit.tempoSlider.addEventListener("change", function (e) {
+  drumKit.updateTempo(e);
 });
