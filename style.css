@@ -44,25 +44,31 @@ svg {
   transition: all 0.5s ease;
 }
 
+.controls button.active {
+  opacity: 0.4;
+}
+
 select {
   padding: 0.5rem;
   font-size: 1rem;
   margin-left: 1rem;
+  border-radius: 5px;
 }
 
 .pad {
   margin-top: 0.5rem;
   display: flex;
   transition: all 0.5s ease;
-} /*Line 바꿔서 밑으로 오게끔!*/
+}
 
 .kick-pad,
 .snare-pad,
 .hihat-pad {
   width: 3rem;
   height: 3rem;
-  margin: 0.5rem 0.2rem;
+  margin: 0.5rem 0.15rem;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .kick-pad {
@@ -106,7 +112,7 @@ input.tempo-range {
   -webkit-appearance: none;
 }
 
-@keyframes playTrack {
+@keyframes playTrackCss {
   from {
     transform: scale(1);
   }
